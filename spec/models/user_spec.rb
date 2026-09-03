@@ -76,7 +76,7 @@ RSpec.describe User, type: :model do
           'Password is invalid'
         )
       end
-      it '全角文字を含むパスワードでは保存できない' do
+      it '全角文字を含むパスワードでは登録できない' do
         @user.password = 'abc123あ'
         @user.password_confirmation = @user.password
         expect(@user).to be_invalid
