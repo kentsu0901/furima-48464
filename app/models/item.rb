@@ -4,6 +4,7 @@ class Item < ApplicationRecord
 
   validates :product_name, presence: true
   validates :description, presence: true
+  validates :image, presence: true
   validates :category_id, numericality: { other_than: 1 }
   validates :condition_id, numericality: { other_than: 1 }
   validates :shipping_fee_id, numericality: { other_than: 1 }
