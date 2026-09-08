@@ -35,7 +35,7 @@ class OrdersController < ApplicationController
   end
 
   def move_to_index
-    return unless current_user == @item.user
+    return unless current_user == @item.user || !@item.order.nil?
 
     redirect_to root_path
   end
