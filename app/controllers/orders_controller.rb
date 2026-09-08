@@ -1,12 +1,13 @@
 class OrdersController < ApplicationController
+  before_action :authenticate_user!
+  before_action :set_item
+  before_action :move_to_index
   def index
     @order_address = OrderAddress.new
-    @item = Item.find(params[:item_id])
   end
 
   def create
     @order_address = OrderAddress.new(order_address_params)
-    @item = Item.find(params[:item_id])
 
     if @order_address.valid?
       @order_address.save
@@ -27,5 +28,15 @@ class OrdersController < ApplicationController
       :building_name,
       :phone_number
     ).merge(user_id: current_user.id, item_id: params[:item_id])
+  end
+
+  def set_item
+    @item = Item.find(params[:item_id])
+  end
+
+  def move_to_index
+    return unless current_user == @item.user
+
+    redirect_to root_path
   end
 end
