@@ -212,8 +212,6 @@ GEM
     payjp (1.1.7)
       base64
       rest-client (~> 2.0)
-    pg (1.6.3-x86_64-darwin)
-    pg (1.6.3-x86_64-linux)
     pp (0.6.4)
       prettyprint
     prettyprint (0.2.0)
@@ -388,7 +386,6 @@ DEPENDENCIES
   mini_magick
   mysql2 (~> 0.5)
   payjp
-  pg
   pry-rails
   puma (>= 5.0)
   rails (~> 7.1.0)
